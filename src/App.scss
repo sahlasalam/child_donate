@@ -1,0 +1,161 @@
+$small: 768px;
+$max: 1360px;
+
+.header_image{
+    padding: {
+        top: 30px;
+        bottom: 20px;
+    }
+    @media screen and (max-width : $small) {
+        text-align: center;
+    }
+}
+.header_page{
+    background-color: rgb(32, 32, 92);
+    height: 860px;
+    @media screen and (max-width: $small) {
+        height: 1130px;
+    }
+}
+.header_text{
+    color: white;
+    @media screen and (max-width: $small) {
+        text-align: center;
+    }
+}
+.h1{
+    @media screen and (min-width : $max){
+        font-size: 65px;
+    }
+}
+
+@mixin box-wrapper {
+    width: 40%;
+    height: 500px;
+    border: 1px solid black;
+    @media screen and (max-width: $small) {
+        width: 100%;
+    }
+}
+.box-wrapper1{
+    @include box-wrapper();
+}
+
+.baby-image{
+    width: 100%;
+    border: 1px white solid;
+
+}
+.baby-image1{
+    width: 100%;
+    height: 100%;
+}
+.big-box{
+    display: flex;
+    margin-top: 50px;
+    height: 500px;
+    @media screen and (max-width: $small) {
+        flex-direction: column;
+    }
+}
+.box-wrapper2{
+    @include box-wrapper();
+    background-color: white;
+    text-align: center;
+}
+.form{
+    height: 80%;
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+}
+@mixin inputstyle{
+    width: 100%;
+    margin-top: 20px;
+    border: 1px black solid
+} 
+.input{
+    @include inputstyle();
+    height: 40px;
+}
+.input-adrs{
+    @include inputstyle();
+    height: 80px;
+}
+@mixin btn {
+    margin-top: 20px;
+    height: 50px;
+    background-color: royalblue;
+    border: none;
+    &:hover{
+        background-color: navy;
+    }
+}
+.btn1{
+    @include btn();
+    width: 100%;
+}
+.logopage{
+    display: flex;
+    justify-content: space-around;
+    @media screen and (max-width: $small) {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+// .logo{
+//     // flex: 0 0 300px;
+//     @media screen and (max-width: $small) {
+//         // flex: 0 0 50px;
+//     }
+// }
+.cord-blood-bank{
+    text-align: center;
+}
+
+@mixin style {
+    width: 700px;
+    height: 300px;
+    margin: auto;
+    margin-top: 70px;
+
+}
+.cord-blood-bank-parent{
+    @include style();
+}
+.btn2{
+    @include btn();
+    margin-left: 160px;
+}
+.circle-parent{
+    @include style();
+    background-image: url(./assets/img1.png);
+    background-size: 100% 100%;
+    // background-repeat: no-repeat;
+}
+.circle-child{
+    height: 225px;
+    width: 225px;
+    background-color: rgb(32, 32, 92);
+    color: white;
+    text-align: center;
+    border-radius: 128px;
+    padding-top: 55px;
+}
+.why-donate-parent{
+    height: 700px;
+    background-color: rgb(236, 248, 250);
+}
+.why-donate-child{
+width: 75%;
+height: 420px;
+background-color: azure;
+display: flex;
+align-items: center;
+}
+.btn3{
+    @include btn();
+    width: 200px;
+    margin-left: 500px;
+}
