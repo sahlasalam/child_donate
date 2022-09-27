@@ -1,4 +1,7 @@
 import React from "react";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+
 
 function Header() {
   const images = require.context("./../assets", true);
@@ -6,12 +9,11 @@ function Header() {
   return (
     <div>
       <div className="header_page">
+        <Navbar/>
         <div className="container">
-          <div className="header_image">
-            <img src={images("./logo.png")} alt="banner"></img>
-          </div>
-          <div className="big-box">
-            <div className="box-wrapper1">
+          <div className="row sec-row">
+            <div className="col-lg-6 col-md-6 col-sm-12">
+              <div className="sec-1-col1">
               <div className="header_text">
                 <h1 className="h1">Upstate Cord Blood Bank</h1>
                 <h5>The Region’s Only Public Cord Blood Donation Center!</h5>
@@ -22,10 +24,13 @@ function Header() {
                   <source src="baby1.mp4" type="video/ogg" />
                 </video>
               </div>
+              </div>
+
             </div>
-            <div className="box-wrapper2">
-              <form className="form">
-                <h3>Get Started</h3>
+            <div className="col-lg-6 col-md-6 col-sm-12 sec-1-col2">
+              <div className="sec-1-form">
+                <form>
+                <h3 className="sec-1-col-h3">Get Started</h3>
                 <input
                   type={"text"}
                   placeholder="Name"
@@ -56,29 +61,44 @@ function Header() {
                   className="btn1"
                 ></input>
               </form>
+
+              </div>
+              </div>
+
+        </div>
+        </div>
+
+        {/* <div className="container">
+          <div className="big-box row sec-row">
+            <div className="col-lg-6 col-md-12 col-sm-12">
+              <div className="baby-image">
+              </div>
+            </div>
+            <div className="col-lg-6 col-md-12 col-sm-12">
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="container">
-        <div className="logopage">
-          <div className="logo logo1">
-            <img src={images("./logo-1.png")} alt="banner" />
+        <div className="logopage sec-row">
+          <div className="logo1">
+            <img className="logo" src={images("./logo-1.png")} alt="banner" />
           </div>
-          <div className="logo logo2">
-            <img src={images("./logo-2.png")} alt="banner" />
+          <div className="logo2">
+            <img className="logo" src={images("./logo-2.png")} alt="banner" />
           </div>
-          <div className="logo logo3">
-            <img src={images("./logo-3.png")} alt="banner" />
+          <div className="logo3">
+            <img className="logo" src={images("./logo-3.png")} alt="banner" />
           </div>
-          <div className="logo logo4">
-            <img src={images("./logo-4.png")} alt="banner" />
+          <div className="logo4">
+            <img className="logo" src={images("./logo-4.png")} alt="banner" />
           </div>
-          <div className="logo logo5">
-            <img src={images("./logo-5.png")} alt="banner" />
+          <div className="logo5">
+            <img className="logo" src={images("./logo-5.png")} alt="banner" />
           </div>
         </div>
-        <div className="cord-blood-bank-parent">
+        <div className="row sec-row">
+        <div className="col-lg-12 col-md-12 col-sm-12 cord-blood-bank-parent">
           <h2 className="cord-blood-bank">What Is Cord Blood Banking?</h2>
           <p className="cord-blood-bank">
             After a baby is born, the umbilical cord is cut and usually
@@ -90,23 +110,36 @@ function Header() {
             donate to patients seeking cord blood for life-saving medical
             treatments.
           </p>
-          <button className="btn2">MORE ABOUT CORD BLOOD BANKING</button>
         </div>
+        </div>
+        <div className="row section-7">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <button className="sec-7-btn">MORE ABOUT CORD BLOOD BANKING</button>
+          </div>
+        </div>
+
       </div>
-      <div className="circle-parent">
-        <div className="circle-child">
+      <div className="container">
+      <div className="row circle-parent sec-row">
+        <div className="col-lg-4 col-md-12 col-md-12 circle-child">
           <h5>
             Upstate Cord Blood Bank is the Region’s Only Public Cord Blood
             Donation Center!
           </h5>
         </div>
       </div>
-      <div className="why-donate-parent">
-        <div className="why-donate-child">
-          <div className="donate-inner1">
-            <img src={images("./img2.png")} alt="banner"></img>
+
+      </div>
+      <div className="section-4">
+      <div className="container">
+        <div className="row sec-row">
+          <div className="col-lg-4 col-md-12 col-sm-12">
+            <div className="sec-4-col1">
+              <img className="sec-4-img" src={images("./img2.png")} alt="banner"></img>
+            </div>
           </div>
-          <div className="donate-inner2">
+          <div className="col-lg-4 col-md-12 col-sm-12">
+            <div className="sec-4-col2">
             <h2>Why Donate Cord Blood?</h2>
             <p>
               According to the National Marrow Donor Program, approximately
@@ -118,18 +151,111 @@ function Header() {
               provide a life-saving treatment for someone in need of a
               transplant.
             </p>
+
+            </div>
           </div>
-          <div className="donate-inner3">
+          <div className="col-lg-4 col-md-12 col-sm-12">
+            <div className="sec-4-col3">
             <p>
               Interested in learning more about how you and your baby can save
               lives with cord blood? We would love to talk with you about how to
               make that possible. If you are an expectant mother looking to
               donate, please call the Upstate Cord Blood Bank at (315) 492-2600.
             </p>
+
+            </div>
           </div>
         </div>
-        <button className="btn3">DONATION PROCESS</button>
+        <div className="row section-7">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <button className="sec-7-btn">DONATION PROCESS</button>
+          </div>
+        </div>
+
       </div>
+      </div>
+      <div className=" section-5">
+        <h2> Cord Blood Bank</h2>
+        <p>
+          Curabitur turpis ut varius tincidunt libero donec mi odio faucibus at
+          scelerisque quis convallis in nisi in ac felis quis
+        </p>
+      </div>
+      <div className="section-6">
+      <div className="container">
+        <div className="row sec-row">
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+            <img src={images("./img-3.png")} alt="banner"></img>
+            <h6>What are Stem Cells?</h6>
+            <p>
+              When your baby is born, the cutting of his or her umbilical cord
+              signifies the beginning of a new life. Typically, your umbilical
+              cord and placenta are discarded as medical waste
+            </p>
+          </div>
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+            <img src={images("./img-4.png")} alt="banner"></img>
+            <h6> Dontating Parents</h6>
+            <p>
+              Mothers and families share inspiring stories and insights about
+              their donation journey. Nolana and Jabare McKinstry talk about
+              their decision to donate cord blood to the…
+            </p>
+          </div>
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+            <img src={images("./img-5.png")} alt="banner"></img>
+            <h6>Resources For Parents</h6>
+            <p>
+              A wealth of information about cord blood collection and usage in
+              transplants can be found on various websites. However, to ensure
+              you are provided the most…
+            </p>
+          </div>
+        </div>
+        <div className="row section-7">
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <button className="sec-7-btn">LEARN MORE ABOUT</button>
+          </div>
+        </div>
+      </div>
+
+
+      </div>
+      <div className="section-8">
+        <div className="container">
+        <div className="row sec-row">
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-8-col">
+            <h2>About Upstate Cord Blood Bank</h2>
+            <p>A 501(c)(3) Not-for-Profit Public Donation Center</p>
+            <p>
+              Upstate Cord Blood Bank is the only public cord bank in upstate.
+              New York State. We are also among the 25 cord banks in the U.S
+              that accept cord blood donations. You can find our
+              state-of-the-art facility located on the same campus as Upstate
+              Community Hospital
+            </p>
+            <button className="sec-8-btn1">(315) 492-2600, (855) 492-2600</button>
+          </div>
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-8-col">
+            <img className="sec-8-img" src={images("./img-6.png")} alt="banner"></img>
+          </div>
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-8-col">
+            <p>
+              We conduct various testing and determine if the donated cord blood
+              unit is appropriate for processing, cryopreservation, storage, and
+              distribution. We also send cord blood units to medical researchers
+              with the consent of the donor to be used in clinical trials.
+              Future expansion will include collections from other CNY hospitals
+              and an option for Family Banking.
+            </p>
+            <button className="sec-8-btn2">MORE ABOUT US</button>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+      <Footer/>
     </div>
   );
 }

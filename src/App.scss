@@ -1,44 +1,56 @@
+@import url('./assets/fonts/stylesheet.css');
 $small: 768px;
 $max: 1360px;
 
-.header_image{
-    padding: {
-        top: 30px;
-        bottom: 20px;
-    }
+@mixin btnstyle {
+    height: 50px;
+    &:hover{
+        background-color: cornflowerblue;
+        color: white;
+    };
+}
+.mobnum{
+    color: white;
+    font-family: 'poppinsbold';
+    padding-top: 25px;
+}
+.navsection{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    padding-left: 157px;
+    padding-right: 189px;
+}
+.inline{
+    display: inline;
+}
+.section-1{
     @media screen and (max-width : $small) {
-        text-align: center;
+        // text-align: center;
+        display: flex;
+        justify-content: center;
     }
 }
 .header_page{
-    background-color: rgb(32, 32, 92);
+    // background-color: rgb(32, 32, 92);
     height: 860px;
+    background-image: url(./assets/IMG-7.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    // object-fit: cover;
+    background-size: cover;
     @media screen and (max-width: $small) {
-        height: 1130px;
+        height: 1230px;
     }
 }
 .header_text{
     color: white;
+    font-family: 'poppinsmedium';
     @media screen and (max-width: $small) {
         text-align: center;
+        font-size: 20px;
     }
-}
-.h1{
-    @media screen and (min-width : $max){
-        font-size: 65px;
-    }
-}
-
-@mixin box-wrapper {
-    width: 40%;
-    height: 500px;
-    border: 1px solid black;
-    @media screen and (max-width: $small) {
-        width: 100%;
-    }
-}
-.box-wrapper1{
-    @include box-wrapper();
 }
 
 .baby-image{
@@ -50,29 +62,31 @@ $max: 1360px;
     width: 100%;
     height: 100%;
 }
-.big-box{
-    display: flex;
-    margin-top: 50px;
-    height: 500px;
-    @media screen and (max-width: $small) {
-        flex-direction: column;
-    }
+.sec-1-col1{
+    height: 428px;
 }
-.box-wrapper2{
-    @include box-wrapper();
+
+.sec-1-form{
     background-color: white;
+    height: 428px;
     text-align: center;
 }
-.form{
-    height: 80%;
-    width: 75%;
-    margin: auto;
-    margin-top: 50px;
+.sec-1-col-h3{
+    color: black;
+    text-align: center;
+    padding-top: 15px;
 }
+
+// .form{
+//     height: 80%;
+//     width: 75%;
+//     margin: auto;
+//     margin-top: 50px;
+// }
 @mixin inputstyle{
-    width: 100%;
+    width: 70%;
     margin-top: 20px;
-    border: 1px black solid
+    border: 1px black solid;
 } 
 .input{
     @include inputstyle();
@@ -82,37 +96,69 @@ $max: 1360px;
     @include inputstyle();
     height: 80px;
 }
-@mixin btn {
-    margin-top: 20px;
+// @mixin btn {
+//     margin-top: 20px;
+//     height: 50px;
+//     background-color: royalblue;
+//     border: none;
+//     &:hover{
+//         background-color: navy;
+//     }
+// }
+.btn1{
+    width: 70%;
+    background-color:rgb(46, 193, 247) ;
     height: 50px;
-    background-color: royalblue;
+    margin-top: 20px;
     border: none;
+    color: white;
+    font-family: 'poppinsbold';
     &:hover{
-        background-color: navy;
+        background-color: lightgray;
     }
 }
-.btn1{
-    @include btn();
-    width: 100%;
-}
+
 .logopage{
+    width: 100%;
+    height: 110px;
     display: flex;
     justify-content: space-around;
+    position: relative;
     @media screen and (max-width: $small) {
         flex-direction: column;
         text-align: center;
+        height: 500px;
     }
-
+    @media screen and (min-width: $small) and (max-width: 920){
+        flex-wrap: wrap;
+    }
 }
-// .logo{
-//     // flex: 0 0 300px;
-//     @media screen and (max-width: $small) {
-//         // flex: 0 0 50px;
-//     }
+// .logo1{
+//     width: 20%;
+//     position: absolute;
 // }
-.cord-blood-bank{
-    text-align: center;
-}
+// .logo2{
+//     width: 20%;
+//     margin-left: 20%;
+//     position: absolute;
+// }
+// .logo3{
+//     width: 20%;
+//     margin-left: 40%;
+//     position: absolute;
+// }
+// .logo4{
+//     width: 20%;
+//     margin-left: 60%;
+//     position: absolute;
+// }
+// .logo5{
+//     width: 20%;
+//     margin-left: 80%;
+//     position: absolute;
+// }
+
+
 
 @mixin style {
     width: 700px;
@@ -122,11 +168,9 @@ $max: 1360px;
 
 }
 .cord-blood-bank-parent{
-    @include style();
-}
-.btn2{
-    @include btn();
-    margin-left: 160px;
+    text-align: center;
+    font-family: 'poppinsmedium';
+
 }
 .circle-parent{
     @include style();
@@ -143,19 +187,128 @@ $max: 1360px;
     border-radius: 128px;
     padding-top: 55px;
 }
-.why-donate-parent{
-    height: 700px;
+// .btn3{
+//     @include btn();
+//     width: 200px;
+//     margin-left: 500px;
+// }
+.section-5{
+    height: 160px;
+    text-align: center;
+    padding-top: 25px;
+}
+.section-8{
     background-color: rgb(236, 248, 250);
+    height: 600px;
+    @media screen and (max-width:992px) {
+        height: 1100px;  
+    }
 }
-.why-donate-child{
-width: 75%;
-height: 420px;
-background-color: azure;
-display: flex;
-align-items: center;
+.sec-row{
+    width: 75%;
+    margin-left: 145px;
+    padding-top: 70px;
+    // @media screen and (max-width: $small) {
+    //     width: 0%;
+    //     margin-left: 0px;
+    //     padding-top: 0px;
+    // }
 }
-.btn3{
-    @include btn();
-    width: 200px;
-    margin-left: 500px;
+.sec-8-img{
+    width: 100%;
+    height: 80%;
+    text-align: center;
+    border-radius: 8px;
+    @media screen and (max-width:992px) {
+        width: 50%;
+    }
+}
+.sec-8-col p{
+    color: gray;
+}
+.sec-8-col h2{
+    color: navy;
+}
+
+.sec-8-btn1{
+    width: 100%;
+    color: white;
+    background-color: rgb(32, 32, 80);
+    border: none;
+    @include btnstyle();
+}
+.sec-8-btn2{
+    background-color: white;
+    color: gray;
+    border: 1px navy solid;
+    width: 150px;
+    font-size: 13px;
+    @include btnstyle();
+}
+.section-7{
+    height: 160px;
+    text-align: center;
+    padding-top: 40px;
+}
+.sec-7-btn{
+    @include btnstyle();
+    border: 1px navy solid;
+    color: gray;
+    background-color: white;
+}
+.sec-6-col{
+    text-align: center;
+}
+.section-4{
+    height: 600px;
+    background-color: rgb(236, 248, 250);
+    @media screen and (max-width:992px) {
+        height: 1362px;  
+        text-align: center;
+    }
+
+}
+// .sec-4-col1{
+//     height: 340PX;
+//     width: 310px;
+//     @media screen and (min-width:992) {
+//         // height: 420px;
+//         background-color: black;
+//     }
+
+//     // @include sec-4-res();
+// }
+.sec-4-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.sec-4-col2{
+    height: 350px;
+    width: 310px;
+    padding-left: 15px;
+    font-size: 15px;
+    // @media screen and (min-width:992) {
+    //     height: 420px;
+    // }
+
+}
+.sec-4-col3{
+    background-color: rgb(32, 32, 80);
+    width: 310px;
+    height: 330px;
+    color: white;
+    padding: 50px;
+    // @media screen and (min-width:992) and (max-width:1400) {
+    //     height: 420px;
+    // }
+}
+.footer{
+    height: 150px;
+    color: lightgray;
+    .para{
+        color: gray;
+        text-align: center;
+        padding-top: 50px;
+    }
 }
