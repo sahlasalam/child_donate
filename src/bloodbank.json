@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "img" : "./img-3.png",
+        "title" : "What are Stem Cells?",
+        "content" : "When your baby is born, the cutting of his or her umbilical cord signifies the beginning of a new life. Typically, your umbilical cord and placenta are discarded as medical waste"
+    },
+    {
+        "id" : "2",
+        "img" : "./img-4.png",
+        "title" : "Dontating Parents",
+        "content" : "Mothers and families share inspiring stories and insights about their donation journey. Nolana and Jabare McKinstry talk about their decision to donate cord blood to the…"
+    },
+    {
+        "id" : "3",
+        "img" : "./img-5.png",
+        "title" : "Resources For Parents",
+        "content" : "A wealth of information about cord blood collection and usage in transplants can be found on various websites. However, to ensure you are provided the most…"
+    }
+]

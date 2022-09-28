@@ -1,10 +1,82 @@
 import React from "react";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
+import { useState } from "react";
+import {useNavigate, Link} from 'react-router-dom'
+import bloodbank from '../bloodbank.json'
 
 
 function Header() {
   const images = require.context("./../assets", true);
+
+  const [details, setDetails] = useState({
+    Name : "",
+    Email : "",
+    Number : "",
+    Message : ""
+  })
+
+  const [error, setError] = useState({
+    Name : "",
+    Email : "",
+    Number : "",
+    Message : ""
+  })
+
+  const navigate = useNavigate();
+
+  const navigateToView=()=>{
+    if(!(details.Name==="") && !(details.Email==="") && !(details.Number==="") && !(details.Message==="")){
+      navigate('/view', {state : details});
+    }
+    else{
+    var newError = {...error};
+    newError.Name= "Invalid Name";
+    newError.Email= "Invalid email"
+    newError.Number= "Invalid number"
+    newError.Message= "Invalid message"
+    setError(newError);
+    }
+  }
+
+    // if(details.Name==="")
+    // {
+    // }
+    // else if(details.Email===""){
+    //   setError(newError)
+    // }
+    // else if(details.Number===""){
+    //   setError(newError)
+    // }
+    // else if(details.Message===""){
+    //   setError(newError)
+    // }
+    // else{
+    //         navigate('/view', {state : details});
+    // }
+  
+
+//&& !(details.Email ==="") && !(details.Number === "") && !(details.Message === "")
+  const enterData=(e)=>{
+     var boxName = e.target.name;
+     var boxValue = e.target.value;
+     var newError = {...error};
+     var prevDetails= {...details};
+    //  prevDetails[boxName] = boxValue;
+    //  setDetails(prevDetails);
+
+     if(boxValue===""){
+      newError[boxName] ="Please enter the "+ boxName
+      setError(newError)
+     }else{
+      newError[boxName] =""
+      setError(newError)
+      prevDetails[boxName] = boxValue;
+      setDetails(prevDetails);
+     }
+  }
+
+
 
   return (
     <div>
@@ -29,38 +101,51 @@ function Header() {
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12 sec-1-col2">
               <div className="sec-1-form">
-                <form>
+               
                 <h3 className="sec-1-col-h3">Get Started</h3>
                 <input
                   type={"text"}
                   placeholder="Name"
                   className="input"
+                  name="Name"
+                  onChange={enterData}
                 ></input>
+                {error.Name!==""? <p>{error.Name}</p>:""}
                 <br />
                 <input
                   type={"email"}
                   placeholder="Email"
                   className="input"
+                  name="Email"
+                  onChange={enterData}
                 ></input>
+                {error.Email!==""? <p>{error.Email}</p>:""}
                 <br />
                 <input
                   type={"number"}
                   placeholder="Number"
                   className="input"
+                  name="Number"
+                  onChange={enterData}
                 ></input>
+                {error.Number!==""? <p>{error.Number}</p>:""}
                 <br />
                 <input
                   type={"text"}
                   placeholder="Messages"
                   className="input-adrs"
+                  name="Message"
+                  onChange={enterData}
                 ></input>
+                {error.Message!==""? <p>{error.Message}</p>:""}
                 <br />
                 <input
                   type={"submit"}
                   value="GET STARTED"
                   className="btn1"
+                  onClick={navigateToView}
                 ></input>
-              </form>
+              
 
               </div>
               </div>
@@ -184,8 +269,22 @@ function Header() {
       <div className="section-6">
       <div className="container">
         <div className="row sec-row">
-          <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
-            <img src={images("./img-3.png")} alt="banner"></img>
+          {bloodbank.map(blooditem=>
+                      <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+                      <Link to={"/bloodbank/" +blooditem.id}>
+                        <img src={images(blooditem.img)} alt="banner"></img></Link>
+                        <h6>{blooditem.title}</h6>
+                        <p>{blooditem.content}</p>
+                    </div>
+          )}
+
+          {/* <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+            {bloodbank.map((blooditem)=>
+                        <Link to={"/bloodbank/"+ blooditem.id}>
+                        <img src={images(blooditem.img)} alt="banner"></img>
+                        </Link>
+            
+            )}
             <h6>What are Stem Cells?</h6>
             <p>
               When your baby is born, the cutting of his or her umbilical cord
@@ -194,8 +293,11 @@ function Header() {
             </p>
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+
+            <Link to="/bloodbank/2">
             <img src={images("./img-4.png")} alt="banner"></img>
-            <h6> Dontating Parents</h6>
+            </Link>
+X            <h6> Dontating Parents</h6>
             <p>
               Mothers and families share inspiring stories and insights about
               their donation journey. Nolana and Jabare McKinstry talk about
@@ -203,14 +305,16 @@ function Header() {
             </p>
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12 sec-6-col">
+            <Link to="/bloodbank/3">
             <img src={images("./img-5.png")} alt="banner"></img>
+            </Link>
             <h6>Resources For Parents</h6>
             <p>
               A wealth of information about cord blood collection and usage in
               transplants can be found on various websites. However, to ensure
               you are provided the most…
             </p>
-          </div>
+          </div> */}
         </div>
         <div className="row section-7">
           <div className="col-lg-12 col-md-12 col-sm-12">
@@ -237,9 +341,11 @@ function Header() {
             <button className="sec-8-btn1">(315) 492-2600, (855) 492-2600</button>
           </div>
           <div className="col-lg-4 col-md-12 col-sm-12 sec-8-col">
-            <img className="sec-8-img" src={images("./img-6.png")} alt="banner"></img>
+            <div className="sec-8-image">
+              <img className="sec-8-img" src={images("./img-6.png")} alt="banner"></img>
+            </div>
           </div>
-          <div className="col-lg-4 col-md-12 col-sm-12 sec-8-col">
+          <div className="col-lg-4 col-md-12 col-sm-12 sec-8-col ">
             <p>
               We conduct various testing and determine if the donated cord blood
               unit is appropriate for processing, cryopreservation, storage, and

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 function Navbar() {
 
     const images = require.context("./../assets", true);
@@ -10,7 +10,10 @@ function Navbar() {
         <div className='container'>
             <div className='navsection'>
             <div className="sidelogo">
-            <img src={images("./logo.png")} alt="banner"></img>
+                <Link to="/">
+                    <img src={images("./logo.png")} alt="banner"></img>
+                </Link>
+            
         </div>
         <div className='mobnum'>
             <img className='inline' src={images('./phone.png')} alt="banner"></img>

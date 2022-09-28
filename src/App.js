@@ -1,7 +1,8 @@
 import './App.scss';
 import Header from './components/Header';
-import Footer from './components/Footer';
-// import Body1 from './components/Body1'
+import View from './components/View'
+import Blood_bank from './components/Blood_bank';
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 
@@ -11,6 +12,8 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Header/>}></Route>
+          <Route path='/view' element={<View/>}></Route>
+          <Route path='/bloodbank/:id' element={<Blood_bank/>}></Route>
         </Routes>
       </Router>
     </div>
